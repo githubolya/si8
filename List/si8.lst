@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  C:\Users\User\Desktop\mgt\si8\List\si8.asm Sun Jan 22 14:45:49 2017
+AVRASM ver. 2.1.30  C:\Users\User\Desktop\mgt\si8\List\si8.asm Sun Jan 22 16:19:21 2017
 
 C:\Users\User\Desktop\mgt\si8\List\si8.asm(1052): warning: Register r5 already defined by the .DEF directive
 C:\Users\User\Desktop\mgt\si8\List\si8.asm(1053): warning: Register r4 already defined by the .DEF directive
