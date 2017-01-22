@@ -1625,20 +1625,25 @@ _0xB5:
 ; 0000 013C   else{ return 0;};
 ; 0000 013D }
 ;
-;//void send_request_si8(char device, unsigned int pnu)
-;//{
-;//char i;
-;//char frame[6], frame_ascii[12];
-;//frame[0]=device;
-;//frame[1]=0x10;
-;//frame[2]=pnu>>8;;
-;//frame[3]=pnu;
-;//add_CRC_si8(frame,4);
-;//get_request_ascii_si8(frame_ascii,frame,6);
-;//putchar_modbus('#');
-;//for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
-;//putchar_modbus(0x0D);
-;//}
+;void send_request_si8(char device, unsigned int pnu)
+; 0000 0140 {
+; 0000 0141 char i;
+; 0000 0142 char frame[6], frame_ascii[12];
+; 0000 0143 frame[0]=device;
+;	device -> Y+21
+;	pnu -> Y+19
+;	i -> R17
+;	frame -> Y+13
+;	frame_ascii -> Y+1
+; 0000 0144 frame[1]=0x10;
+; 0000 0145 frame[2]=pnu>>8;;
+; 0000 0146 frame[3]=pnu;
+; 0000 0147 add_CRC_si8(frame,4);
+; 0000 0148 get_request_ascii_si8(frame_ascii,frame,6);
+; 0000 0149 //putchar_modbus('#');
+; 0000 014A //for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
+; 0000 014B //putchar_modbus(0x0D);
+; 0000 014C }
 ;
 ;char hex_tetrada_from_ascii_char( char ascii_char)
 ; 0000 014F {
@@ -2552,7 +2557,7 @@ _get_word_si8:
 	CPI  R30,LOW(0xF0)
 	BRNE _0xA2
 ; 0000 0217   {
-; 0000 0218 //        delay_ms( 1000 );
+; 0000 0218         //delay_ms( 1000 );
 ; 0000 0219         return 5;  // исключительная ситуация
 	LDI  R30,LOW(5)
 	JMP  _0x20C0004
@@ -2605,7 +2610,7 @@ _0xAE:
 ; 0000 0225             else
 _0xAC:
 ; 0000 0226             {
-; 0000 0227 //             delay_ms( 1000 );
+; 0000 0227             //delay_ms( 1000 );
 ; 0000 0228               return 6;
 	LDI  R30,LOW(6)
 	JMP  _0x20C0004

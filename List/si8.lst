@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.1.30  C:\cvavr2\Projects\SI8\si8_6\List\si8.asm Tue Jun 14 14:14:19 2011
+AVRASM ver. 2.1.30  C:\Users\User\Desktop\mgt\si8\List\si8.asm Sun Jan 22 14:45:49 2017
 
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1052): warning: Register r5 already defined by the .DEF directive
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1053): warning: Register r4 already defined by the .DEF directive
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1054): warning: Register r7 already defined by the .DEF directive
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1055): warning: Register r6 already defined by the .DEF directive
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1056): warning: Register r9 already defined by the .DEF directive
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1057): warning: Register r8 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1052): warning: Register r5 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1053): warning: Register r4 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1054): warning: Register r7 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1055): warning: Register r6 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1056): warning: Register r9 already defined by the .DEF directive
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1057): warning: Register r8 already defined by the .DEF directive
                  
                  
                  ;CodeVisionAVR C Compiler V2.04.4a Advanced
@@ -1135,12 +1135,12 @@ C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1057): warning: Register r8 already de
 000059 534d
 00005a 0d54      	.DB  0x4F,0x4C,0x4D,0x53,0x54,0xD
                  _0x208005F:
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1114): warning: .cseg .db misalignment - padding zero byte
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1114): warning: .cseg .db misalignment - padding zero byte
 00005b 0001      	.DB  0x1
                  _0x2080000:
 00005c 4e2d
 00005d 4e41
-C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1116): warning: .cseg .db misalignment - padding zero byte
+C:\Users\User\Desktop\mgt\si8\List\si8.asm(1116): warning: .cseg .db misalignment - padding zero byte
 00005e 0000      	.DB  0x2D,0x4E,0x41,0x4E,0x0
                  
                  __GLOBAL_INI_TBL:
@@ -1653,20 +1653,25 @@ C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1116): warning: .cseg .db misalignment
                  ; 0000 013C   else{ return 0;};
                  ; 0000 013D }
                  ;
-                 ;//void send_request_si8(char device, unsigned int pnu)
-                 ;//{
-                 ;//char i;
-                 ;//char frame[6], frame_ascii[12];
-                 ;//frame[0]=device;
-                 ;//frame[1]=0x10;
-                 ;//frame[2]=pnu>>8;;
-                 ;//frame[3]=pnu;
-                 ;//add_CRC_si8(frame,4);
-                 ;//get_request_ascii_si8(frame_ascii,frame,6);
-                 ;//putchar_modbus('#');
-                 ;//for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
-                 ;//putchar_modbus(0x0D);
-                 ;//}
+                 ;void send_request_si8(char device, unsigned int pnu)
+                 ; 0000 0140 {
+                 ; 0000 0141 char i;
+                 ; 0000 0142 char frame[6], frame_ascii[12];
+                 ; 0000 0143 frame[0]=device;
+                 ;	device -> Y+21
+                 ;	pnu -> Y+19
+                 ;	i -> R17
+                 ;	frame -> Y+13
+                 ;	frame_ascii -> Y+1
+                 ; 0000 0144 frame[1]=0x10;
+                 ; 0000 0145 frame[2]=pnu>>8;;
+                 ; 0000 0146 frame[3]=pnu;
+                 ; 0000 0147 add_CRC_si8(frame,4);
+                 ; 0000 0148 get_request_ascii_si8(frame_ascii,frame,6);
+                 ; 0000 0149 //putchar_modbus('#');
+                 ; 0000 014A //for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
+                 ; 0000 014B //putchar_modbus(0x0D);
+                 ; 0000 014C }
                  ;
                  ;char hex_tetrada_from_ascii_char( char ascii_char)
                  ; 0000 014F {
@@ -2631,7 +2636,7 @@ C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1116): warning: .cseg .db misalignment
 0003b6 3fe0      	CPI  R30,LOW(0xF0)
 0003b7 f419      	BRNE _0xA2
                  ; 0000 0217   {
-                 ; 0000 0218 //        delay_ms( 1000 );
+                 ; 0000 0218         //delay_ms( 1000 );
                  ; 0000 0219         return 5;  // исключительная ситуация
 0003b8 e0e5      	LDI  R30,LOW(5)
 0003b9 940c 04a8 	JMP  _0x20C0004
@@ -2684,7 +2689,7 @@ C:\cvavr2\Projects\SI8\si8_6\List\si8.asm(1116): warning: .cseg .db misalignment
                  ; 0000 0225             else
                  _0xAC:
                  ; 0000 0226             {
-                 ; 0000 0227 //             delay_ms( 1000 );
+                 ; 0000 0227             //delay_ms( 1000 );
                  ; 0000 0228               return 6;
 0003e3 e0e6      	LDI  R30,LOW(6)
 0003e4 940c 04a8 	JMP  _0x20C0004
