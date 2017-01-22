@@ -326,9 +326,9 @@ frame[2]=pnu>>8;;
 frame[3]=pnu;
 add_CRC_si8(frame,4);
 get_request_ascii_si8(frame_ascii,frame,6);
-putchar_modbus('#');
-for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
-putchar_modbus(0x0D);
+//putchar_modbus('#');
+//for(i=0; i<12; i++) putchar_modbus(frame_ascii[i]);
+//putchar_modbus(0x0D);
 }
 
 char hex_tetrada_from_ascii_char( char ascii_char)
@@ -533,7 +533,7 @@ char get_word_si8(unsigned int *data, char * frame_in)
 { //data -размер 2 слова(4 байта)
   if( (*(frame_in+4)&0xF0)==0xF0 )
   { 
-        delay_ms( 1000 ); 
+        //delay_ms( 1000 ); 
         return 5;  // исключительная ситуация
   }      
   else{ 
@@ -548,7 +548,7 @@ char get_word_si8(unsigned int *data, char * frame_in)
                }
             else 
             {
-            delay_ms( 1000 );
+            //delay_ms( 1000 );
               return 6;
             }; // сетевая ошибка.   
            };  
