@@ -1,0 +1,8 @@
+# files si8 wich always change
+
+# folders ignore:
+/Linker
+/Obj
+/List
+
+# files ignore:
